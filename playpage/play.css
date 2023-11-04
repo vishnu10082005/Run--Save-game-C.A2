@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Irish+Grover&family=Poppins:wght@300&family=Roboto&family=Tilt+Prism&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(https://s3-alpha-sig.figma.com/img/14c8/9850/42ee166811a2972aec1c9b8d97c550b3?Expires=1699833600&Signature=Kd-QQBPKJusZh2U339-k1QVqf3iybbdG2oS-COwSP0a84~5wKIR~TMB4zvdl6pHVFq5MLRipDqTKhR3U742SN1rdnZ9CzGAU8x9PN6-qQpSNcWpW33W9~Kingm1uLj01VlrZm9iJea5an67Zvw14BC-eFDhPyK-F5wGkh5Hv3lHDEWFXKmthAtYowDh0dfQU5yGU7Y7WAJrJSUqt2-x8NrJ6-6u~wLuz4l8lFMNEqRGasamScDLz86Bks2Iuc-24~8UHthSPXBBqaI1cDVN7sMQZEIHuJyrnaepPjS3T1bR1opjajcUwNno0ktRzZBv0-MatcNuzX1MsptYX9von0Q__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4);
+    background-repeat: no-repeat;
+    background-size: 100%;
+ 
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.tigerimage img {
+    width: 12%;
+    height: 12%;
+    margin-top: 19%;
+    margin-left: 24%;
+}
+
+.playbtn {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    width: 100px;
+    position: relative;
+    margin-left: 75%;
+    margin-top: 6%;
+    /* font-family: ; */
+
+}
