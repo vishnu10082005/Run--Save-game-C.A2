@@ -1,0 +1,21 @@
+body {
+    background-image: url("https://cdn3.vectorstock.com/i/1000x1000/04/47/board-template-with-nature-theme-background-vector-29930447.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.instructions{
+    margin-left: 25%;
+    color: white;
+    font-size: 40px;
+    font-style: italic;
+    font-weight: 400;
+    margin-top: 10%;
+    line-height: 50px;
+    position: fixed;
+}
+.btns{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}

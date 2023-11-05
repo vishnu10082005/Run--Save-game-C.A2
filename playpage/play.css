@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Irish+Grover&family=Poppins:wght@300&family=Roboto&family=Tilt+Prism&display=swap");
+
 * {
     margin: 0;
     padding: 0;
@@ -8,25 +9,67 @@ body {
     background-image: url(https://s3-alpha-sig.figma.com/img/14c8/9850/42ee166811a2972aec1c9b8d97c550b3?Expires=1699833600&Signature=Kd-QQBPKJusZh2U339-k1QVqf3iybbdG2oS-COwSP0a84~5wKIR~TMB4zvdl6pHVFq5MLRipDqTKhR3U742SN1rdnZ9CzGAU8x9PN6-qQpSNcWpW33W9~Kingm1uLj01VlrZm9iJea5an67Zvw14BC-eFDhPyK-F5wGkh5Hv3lHDEWFXKmthAtYowDh0dfQU5yGU7Y7WAJrJSUqt2-x8NrJ6-6u~wLuz4l8lFMNEqRGasamScDLz86Bks2Iuc-24~8UHthSPXBBqaI1cDVN7sMQZEIHuJyrnaepPjS3T1bR1opjajcUwNno0ktRzZBv0-MatcNuzX1MsptYX9von0Q__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4);
     background-repeat: no-repeat;
     background-size: 100%;
- 
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
 
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+}
+.LEADERBOARD img{
+    width: 350px;
+
+}
+.LEADERBOARD{
+    margin-left: 71%;
+}
+.LEADERBOARD .details{
+margin-top: -50%;
+margin-left: 30%;
+}
+.details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 130px;
+    width: 130px;
+}
+input{
+    background-color: #2A6338;
+    border-style: none;
+    border-radius: 10px;
+    color: white;
+    height: 40px;
+}
+.LEADERBOARD h3{
+    margin-top: -15%;
+    margin-left: 11%;
+}
 .tigerimage img {
     width: 12%;
     height: 12%;
-    margin-top: 19%;
+    margin-top: 5%;
     margin-left: 24%;
 }
 
 .playbtn {
     display: flex;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid none;
     width: 100px;
     position: relative;
     margin-left: 75%;
     margin-top: 6%;
-    /* font-family: ; */
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+.instruction {
+    /* border: 1px solid black; */
+    margin-left: 15%;
+    color: white;
+    font-size: 50px;
+    font-style: italic;
+    font-weight: 400;
+    /* transform: rotate(200.534deg); */
 
 }

@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: red;
+    overflow: hidden;
+}
+
+.gameContainer {
+    background-image: url("https://as1.ftcdn.net/v2/jpg/05/34/86/86/1000_F_534868636_ERzrXW1WI1ladt1rfivEfpXmqw3LLXVm.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    width: 100%;
+    height: 100vh;
+}
+
+.dino {
+    background-image: url('assests/derr mage wthout background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 180px;
+    height: 244px;
+    position: absolute;
+    bottom: 0;
+    left: 52px;
+}
+
+.obstacle {
+    width: 180px;
+    height: 120px;
+    background-image: url('assests/depositphotos_494581100-stock-illustration-animal-character-funny-cheetah-cartoon-fotor-bg-remover-2023110592021.png');
+    background-size: cover;
+    position: absolute;
+    bottom: 0;
+    left: 100%; /* Start the obstacle outside the window */
+    animation: obstacleAni 5s linear infinite;
+}
+
+.gameOver {
+    position: relative;
+    top: 63px;
+    font-size: 53px;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#scoreCont {
+    font-size: 25px;
+    color: #54212f;
+    font-weight: bold;
+    position: absolute;
+    right: 45px;
+    top: 31px;
+    border: 2px solid black;
+    padding: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    border-radius: 10px;
+}
+
+@keyframes dino {
+    0% {
+        bottom: 0;
+    }
+    50% {
+        bottom: 422px;
+    }
+    100% {
+        bottom: 0;
+    }
+}
+
+@keyframes obstacleAni {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: -10vw;
+    }
+}
+.animateDino{
+    animation: dino 0.6s linear;
+}
