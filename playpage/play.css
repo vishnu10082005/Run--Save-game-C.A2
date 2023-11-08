@@ -52,7 +52,7 @@ input {
     width: 100px;
     position: relative;
     margin-left: 75%;
-    margin-top: 21%;
+    margin-top: 31%;
     color: white;
 }
 
@@ -68,6 +68,15 @@ a {
     font-style: italic;
     font-weight: 400;
     /* transform: rotate(200.534deg); */
+
+}
+button{
+    border-style: none;
+    background-color:#2A6338 ;
+    color: white;
+    padding: 10px;
+    border-radius: 50px;
+    cursor:all-scroll;
 
 }
 
