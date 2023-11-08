@@ -2,7 +2,7 @@
 let bgmMusic = new Audio("./assests/bgm1.mp3");
 bgmMusic.play();
 loop = true;
-  // Get references to the input fields and the "Save Data" button
+  // Get  to the input values and the "Save Data" button
   const nameInput = document.getElementById("nameInput");
   const ageInput = document.getElementById("ageInput");
   const squadInput = document.getElementById("squadInput");
@@ -10,7 +10,7 @@ loop = true;
 
   // Event listener for the button click
   saveButton.addEventListener("click", () => {
-      // Get values from input fields
+      // Get values from input.value
       const name = nameInput.value;
       const age = ageInput.value;
       const squad = squadInput.value;
