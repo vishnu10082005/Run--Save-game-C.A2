@@ -25,3 +25,14 @@ loop = true;
       // Store the data in local storage as a JSON string
       localStorage.setItem("playerData", JSON.stringify(data));
   });
+  let windowChange = document.querySelector(".playbtn")
+  windowChange.addEventListener("click",change)
+  function change(){
+    window.location.href = './../game.html'
+  }
+
+  let instructionChange = document.querySelector(".instruction")
+  instructionChange.addEventListener("click",changes)
+  function changes(){
+    window.location.href = './instruction.html'
+  }
