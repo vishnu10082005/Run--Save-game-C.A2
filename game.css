@@ -48,12 +48,12 @@ body {
 
 #scoreCont {
     font-size: 25px;
-    color: #54212f;
+    color: white;
     font-weight: bold;
     position: absolute;
     right: 45px;
     top: 31px;
-    border: 2px solid black;
+    border: 2px solid white;
     padding: 10px;
     font-family: 'Ubuntu', sans-serif;
     border-radius: 10px;
@@ -81,4 +81,31 @@ body {
 }
 .animateDino{
     animation: dino 0.6s linear;
+}
+@media screen and  (max-width: 600px) and (max-height: 100vh){
+    background-image {
+        transform: rotate(-90deg)
+    };
+    .dino {
+        background-image: url('assests/derr mage wthout background.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100px;
+        height: 144px;
+        position: absolute;
+        bottom: 0;
+        left: 52px;
+    }
+    #scoreCont {
+        font-size: 10px;
+        color: #54212f;
+        font-weight: bold;
+        position: absolute;
+        right: 45px;
+        top: 31px;
+        border: 2px solid black;
+        padding: 10px;
+        font-family: 'Ubuntu', sans-serif;
+        border-radius: 10px;
+    }
 }

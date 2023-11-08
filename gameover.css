@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image: url(https://static.vecteezy.com/system/resources/previews/015/008/012/non_2x/cartoon-forest-background-with-pond-swamp-trail-free-vector.jpg);
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    width: 100%;
+    height: 100vh;
+}
+.cheetahattack{
+
+    margin-top: -5%;
+    margin-left: 70%;
+}
+.gamever{
+    margin-left: 30%;
+}
+button{
+    background-color: aqua;
+    margin-left: 200px;
+    color: black;
+    width: 100px;
+    cursor: pointer;
+    padding: 10px;
+    font-style: italic;
+    margin-top: 40px;
+    margin-left: 300px;
+    border-style: none;
+}
+button:hover{
+    background-color: antiquewhite;
+    text-transform: uppercase;
+    border-radius: 20px;
+    color: red;
+}
+#score{
+    border: 1px solid none;
+    width: 120px;
+    height: 50px;
+    margin-top: -11%;
+    /* margin: auto; */
+    margin-left: 450px;
+    background-color: aqua;
+    text-align: center;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    border-radius: 40px;
+}
+@media screen and (max-width: 600px) and (max-height: 100vh) {
+    background-image{
+        transform: rotate(-90deg);
+        
+    }
+    button{
+        display: flex;
+        flex-direction: column;
+        font-size: 10px;
+        width: 50px;
+    }
+    .gamever{
+        margin-left: 150px;
+    }
+    .gamever img{
+        width: 300px;
+    }
+    #score{
+        border: 1px solid none;
+        width: 100px;
+        height: 25px;
+        margin-top: -11%;
+        /* margin: auto; */
+        margin-left: 265px;
+        background-color: aqua;
+        text-align: center;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-style: italic;
+        border-radius: 40px;
+    }
+    .cheetahattack{
+        margin-top: -5%;
+        margin-left: 70%;
+    }
+    .cheetahattack img{
+        width: 200px;
+    }
+}

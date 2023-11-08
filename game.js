@@ -1,14 +1,13 @@
+//initlising the score to the zero
 let score = 0;
+//first the cross(jump) mean the jump =true
 let cross = true;
+//giving background music for the game
+let bgmMusic = new Audio("./assests/bgm2.mp3");
+bgmMusic.play();
+loop = true;
 
-let audio = new Audio('music.mp3');
-let audiogo = new Audio('gameover.mp3');
-audio.volume = 0.2; // Adjust the audio volume as needed
-
-setTimeout(() => {
-    audio.play();
-}, 1000);
-
+//giving the evenet listerners for the key
 document.onkeydown = function (e) {
     if (e.keyCode == 38 && cross) {
         jump();
@@ -20,7 +19,7 @@ document.onkeydown = function (e) {
         moveLeft();
     }
 }
-
+//function for movement of jump
 function jump() {
     let dino = document.querySelector('.dino');
     if (!dino.classList.contains('animateDino')) {
@@ -30,7 +29,7 @@ function jump() {
         }, 700);
     }
 }
-
+//function for movement of left
 function moveRight() {
     let dino = document.querySelector('.dino');
     let dinoX = parseInt(window.getComputedStyle(dino, null).getPropertyValue('left'));
@@ -38,7 +37,7 @@ function moveRight() {
         dino.style.left = (dinoX + 112) + 'px';
     }
 }
-
+//function for movement of left
 function moveLeft() {
     let dino = document.querySelector('.dino');
     let dinoX = parseInt(window.getComputedStyle(dino, null).getPropertyValue('left'));
@@ -46,8 +45,9 @@ function moveLeft() {
         dino.style.left = (dinoX - 112) + 'px';
     }
 }
-
-setInterval(() => {
+//getting the mathematical values for the movement of the deer and the cheetah by using the function .getComputedStyle()
+//this function will take two arguments getElementById, querySelector or the ::after or ::before elements or if there is nothing else we will take null.
+ setInterval(() => {
     let dino = document.querySelector('.dino');
     let gameOver = document.querySelector('.gameOver');
     let obstacle = document.querySelector('.obstacle');
@@ -64,16 +64,16 @@ setInterval(() => {
     let obstacleHeight = parseInt(window.getComputedStyle(obstacle, null).getPropertyValue('height'));
 
     if (
-        dx < ox + obstacleWidth &&
+        dx < ox + obstacleWidth &&//matematic properties for the game over theme
         dx + dinoWidth > ox &&
         dy < oy + obstacleHeight &&
         dy + dinoHeight > oy
     ) {
         // Collision detected, end the game
-        gameOver.innerHTML = "Game Over - Reload to Play Again";
+        window.location.href = "./gameover.html"
         obstacle.style.animation = "none"; // Stop the obstacle animation
-        audiogo.play();
-        audio.pause();
+        bgmMusic.play();//playing the backgound music
+        bgmMusic.pause();//after the game is over
     } else if (dx > ox + obstacleWidth && cross) {
         score += 1;
         updateScore(score);
@@ -88,8 +88,10 @@ setInterval(() => {
         }, 500);
     }
 }, 10);
-
+//function for the score update
 function updateScore(score) {
     let scoreCont = document.getElementById('scoreCont');
-    scoreCont.innerHTML = "Your Score: " + score;
+    scoreCont.innerHTML = "Your Score: " + score; // Set innerHTML to the score variable
+    localStorage.setItem('scoreCont', score);
 }
+
