@@ -1,13 +1,13 @@
-//initlising the score to the zero
+// Initializing the score to zero
 let score = 0;
-//first the cross(jump) mean the jump =true
+// Flag for jump
 let cross = true;
-//giving background music for the game
+// Background music for the game
 let bgmMusic = new Audio("./assests/bgm2.mp3");
 bgmMusic.play();
 loop = true;
 
-//giving the evenet listerners for the key
+// Event listeners for key events
 document.onkeydown = function (e) {
     if (e.keyCode == 38 && cross) {
         jump();
@@ -19,62 +19,66 @@ document.onkeydown = function (e) {
         moveLeft();
     }
 }
-//function for movement of jump
+
+// Function for the jump movement
 function jump() {
-    let dino = document.querySelector('.dino');
-    if (!dino.classList.contains('animateDino')) {
-        dino.classList.add('animateDino');
+    let deer = document.querySelector('.Deer');
+    if (!deer.classList.contains('animateDeer')) {
+        deer.classList.add('animateDeer');
         setTimeout(() => {
-            dino.classList.remove('animateDino');
+            deer.classList.remove('animateDeer');
         }, 700);
     }
 }
-//function for movement of left
+
+
+// Function for the right movement
 function moveRight() {
-    let dino = document.querySelector('.dino');
-    let dinoX = parseInt(window.getComputedStyle(dino, null).getPropertyValue('left'));
-    if (dinoX < window.innerWidth - 180) {
-        dino.style.left = (dinoX + 112) + 'px';
+    let deer = document.querySelector('.Deer');
+    let deerX = parseInt(window.getComputedStyle(deer, null).getPropertyValue('left'));
+    if (deerX < window.innerWidth - 180) {
+        deer.style.left = (deerX + 112) + 'px';
     }
 }
-//function for movement of left
+
+// Function for the left movement
 function moveLeft() {
-    let dino = document.querySelector('.dino');
-    let dinoX = parseInt(window.getComputedStyle(dino, null).getPropertyValue('left'));
-    if (dinoX > 0) {
-        dino.style.left = (dinoX - 112) + 'px';
+    let deer = document.querySelector('.Deer');
+    let deerX = parseInt(window.getComputedStyle(deer, null).getPropertyValue('left'));
+    if (deerX > 0) {
+        deer.style.left = (deerX - 112) + 'px';
     }
 }
-//getting the mathematical values for the movement of the deer and the cheetah by using the function .getComputedStyle()
-//this function will take two arguments getElementById, querySelector or the ::after or ::before elements or if there is nothing else we will take null.
- setInterval(() => {
-    let dino = document.querySelector('.dino');
+
+// Getting the mathematical values for the movement of the deer and the cheetah
+setInterval(() => {
+    let deer = document.querySelector('.Deer');
     let gameOver = document.querySelector('.gameOver');
-    let obstacle = document.querySelector('.obstacle');
+    let cheetah = document.querySelector('.Cheetah');
 
-    let dx = parseInt(window.getComputedStyle(dino, null).getPropertyValue('left'));
-    let dy = parseInt(window.getComputedStyle(dino, null).getPropertyValue('top'));
+    let dx = parseInt(window.getComputedStyle(deer, null).getPropertyValue('left'));
+    let dy = parseInt(window.getComputedStyle(deer, null).getPropertyValue('top'));
 
-    let ox = parseInt(window.getComputedStyle(obstacle, null).getPropertyValue('left'));
-    let oy = parseInt(window.getComputedStyle(obstacle, null).getPropertyValue('top'));
+    let ox = parseInt(window.getComputedStyle(cheetah, null).getPropertyValue('left'));
+    let oy = parseInt(window.getComputedStyle(cheetah, null).getPropertyValue('top'));
 
-    let dinoWidth = parseInt(window.getComputedStyle(dino, null).getPropertyValue('width'));
-    let dinoHeight = parseInt(window.getComputedStyle(dino, null).getPropertyValue('height'));
-    let obstacleWidth = parseInt(window.getComputedStyle(obstacle, null).getPropertyValue('width'));
-    let obstacleHeight = parseInt(window.getComputedStyle(obstacle, null).getPropertyValue('height'));
+    let deerW = parseInt(window.getComputedStyle(deer, null).getPropertyValue('width'));
+    let deerH = parseInt(window.getComputedStyle(deer, null).getPropertyValue('height'));
+    let cheetahW = parseInt(window.getComputedStyle(cheetah, null).getPropertyValue('width'));
+    let cheetahH = parseInt(window.getComputedStyle(cheetah, null).getPropertyValue('height'));
 
     if (
-        dx < ox + obstacleWidth &&//matematic properties for the game over theme
-        dx + dinoWidth > ox &&
-        dy < oy + obstacleHeight &&
-        dy + dinoHeight > oy
+        dx < ox + cheetahW &&
+        dx + deerW > ox &&
+        dy < oy + cheetahH &&
+        dy + deerH > oy
     ) {
         // Collision detected, end the game
         window.location.href = "./gameover.html"
-        obstacle.style.animation = "none"; // Stop the obstacle animation
-        bgmMusic.play();//playing the backgound music
-        bgmMusic.pause();//after the game is over
-    } else if (dx > ox + obstacleWidth && cross) {
+        cheetah.style.animation = "none"; // Stop the obstacle animation
+        bgmMusic.play(); // playing the background music
+        bgmMusic.pause(); // after the game is over
+    } else if (dx > ox + cheetahW && cross) {
         score += 1;
         updateScore(score);
         cross = false;
@@ -82,16 +86,16 @@ function moveLeft() {
             cross = true;
         }, 1000);
         setTimeout(() => {
-            let aniDur = parseFloat(window.getComputedStyle(obstacle, null).getPropertyValue('animation-duration'));
+            let aniDur = parseFloat(window.getComputedStyle(cheetah, null).getPropertyValue('animation-duration'));
             let newDur = aniDur - 0.1;
-            obstacle.style.animationDuration = newDur + 's';
+            cheetah.style.animationDuration = newDur + 's';
         }, 500);
     }
 }, 10);
-//function for the score update
+
+// Function for the score update
 function updateScore(score) {
     let scoreCont = document.getElementById('scoreCont');
     scoreCont.innerHTML = "Your Score: " + score; // Set innerHTML to the score variable
     localStorage.setItem('scoreCont', score);
 }
-
