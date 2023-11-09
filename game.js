@@ -99,3 +99,4 @@ function updateScore(score) {
     scoreCont.innerHTML = "Your Score: " + score; // Set innerHTML to the score variable
     localStorage.setItem('scoreCont', score);
 }
+
