@@ -1,72 +1,56 @@
-// Initializing the score to zero
 let score = 0;
-// Flag for jump
-let cross = true;
-// Background music for the game
-let bgmMusic = new Audio("./assests/bgm2.mp3");
-bgmMusic.play();
-loop = true;
+let crossed = true; // Initialize as true to allow the initial crossing
+let gameover = false;
 
-// Event listeners for key events
+const audio = new Audio('music.mp3');
+const bgmMusic = new Audio('bgmusic.mp3'); // Add this line with the correct file name
+const audiogo = new Audio('gameover.mp3');
+const Deer = document.querySelector('.Deer');
+const Cheetah = document.querySelector('.Cheetah');
+const gameOver = document.querySelector('.gameOver');
+const scoreCont = document.getElementById('scoreCont');
+
+setTimeout(() => {
+    audio.play();
+}, 1000);
+
 document.onkeydown = function (e) {
-    if (e.keyCode == 38 && cross) {
-        jump();
+    console.log("Key code is: ", e.keyCode);
+    if (e.keyCode == 38) {
+        Deer.style.animation = 'none';
+        setTimeout(() => {
+            Deer.style.animation = 'DeerJump 1s linear';
+        }, 50);
     }
     if (e.keyCode == 39) {
-        moveRight();
+        const DeerX = parseInt(window.getComputedStyle(Deer, null).getPropertyValue('left'));
+        Deer.style.left = DeerX + 112 + "px";
     }
     if (e.keyCode == 37) {
-        moveLeft();
+        const DeerX = parseInt(window.getComputedStyle(Deer, null).getPropertyValue('left'));
+        Deer.style.left = (DeerX - 112) + "px";
     }
 }
-
-// Function for the jump movement
-function jump() {
-    let deer = document.querySelector('.Deer');
-    if (!deer.classList.contains('animateDeer')) {
-        deer.classList.add('animateDeer');
-        setTimeout(() => {
-            deer.classList.remove('animateDeer');
-        }, 700);
-    }
-}
-
-
-// Function for the right movement
-function moveRight() {
-    let deer = document.querySelector('.Deer');
-    let deerX = parseInt(window.getComputedStyle(deer, null).getPropertyValue('left'));
-    if (deerX < window.innerWidth - 180) {
-        deer.style.left = (deerX + 112) + 'px';
-    }
-}
-
-// Function for the left movement
-function moveLeft() {
-    let deer = document.querySelector('.Deer');
-    let deerX = parseInt(window.getComputedStyle(deer, null).getPropertyValue('left'));
-    if (deerX > 0) {
-        deer.style.left = (deerX - 112) + 'px';
-    }
-}
-
-// Getting the mathematical values for the movement of the deer and the cheetah
+//setting the interval for the jump ,cross ,score,
 setInterval(() => {
     let deer = document.querySelector('.Deer');
-    let gameOver = document.querySelector('.gameOver');
     let cheetah = document.querySelector('.Cheetah');
 
     let dx = parseInt(window.getComputedStyle(deer, null).getPropertyValue('left'));
-    let dy = parseInt(window.getComputedStyle(deer, null).getPropertyValue('top'));
+    let dy = parseInt(window.getComputedStyle(deer, null).getPropertyValue('bottom'));
 
     let ox = parseInt(window.getComputedStyle(cheetah, null).getPropertyValue('left'));
-    let oy = parseInt(window.getComputedStyle(cheetah, null).getPropertyValue('top'));
+    let oy = parseInt(window.getComputedStyle(cheetah, null).getPropertyValue('bottom'));
 
     let deerW = parseInt(window.getComputedStyle(deer, null).getPropertyValue('width'));
     let deerH = parseInt(window.getComputedStyle(deer, null).getPropertyValue('height'));
     let cheetahW = parseInt(window.getComputedStyle(cheetah, null).getPropertyValue('width'));
     let cheetahH = parseInt(window.getComputedStyle(cheetah, null).getPropertyValue('height'));
 
+    // Adjust the offset conditions based on the Deer and Cheetah dimensions
+    const offsetX = Math.abs(dx - ox);
+    const offsetY = Math.abs(dy - oy);
+//mathematical agenda fir the game over
     if (
         dx < ox + cheetahW &&
         dx + deerW > ox &&
@@ -74,29 +58,35 @@ setInterval(() => {
         dy + deerH > oy
     ) {
         // Collision detected, end the game
-        window.location.href = "./gameover.html"
+        window.location.href = "./gameover.html";
         cheetah.style.animation = "none"; // Stop the obstacle animation
-        bgmMusic.play(); // playing the background music
-        bgmMusic.pause(); // after the game is over
-    } else if (dx > ox + cheetahW && cross) {
+        audiogo.play(); // Play game over sound
+        setTimeout(() => {
+            audiogo.pause();
+            audio.pause();
+        }, 1000);
+    } else if (offsetX < 90 && crossed) {
+        // Adjusted the offsetX condition for the score increase
         score += 1;
         updateScore(score);
-        cross = false;
+        crossed = false;
         setTimeout(() => {
-            cross = true;
+            crossed = true;
         }, 1000);
         setTimeout(() => {
-            let aniDur = parseFloat(window.getComputedStyle(cheetah, null).getPropertyValue('animation-duration'));
-            let newDur = aniDur - 0.1;
-            cheetah.style.animationDuration = newDur + 's';
+            const aniDur = parseFloat(window.getComputedStyle(Cheetah, null).getPropertyValue('animation-duration'));
+            const newDur = aniDur - 0.1;
+            Cheetah.style.animationDuration = newDur + 's';
+            console.log('New animation duration: ', newDur);
         }, 500);
+
+        // Log the values after the score is updated
+        console.log('offsetX:', offsetX, 'offsetY:', offsetY, 'crossed:', crossed);
     }
 }, 10);
 
-// Function for the score update
 function updateScore(score) {
-    let scoreCont = document.getElementById('scoreCont');
-    scoreCont.innerHTML = "Your Score: " + score; // Set innerHTML to the score variable
-    localStorage.setItem('scoreCont', score);
-}
+    scoreCont.innerHTML = "Your Score: " + score;
+    localStorage.setItem('score', score);
 
+}

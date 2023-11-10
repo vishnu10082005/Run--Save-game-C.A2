@@ -9,7 +9,7 @@ body {
 }
 
 .gameContainer {
-    background-image: url("https://as1.ftcdn.net/v2/jpg/05/34/86/86/1000_F_534868636_ERzrXW1WI1ladt1rfivEfpXmqw3LLXVm.jpg");
+    background-image: url(https://wallpapers.com/images/hd/cartoon-forest-background-2000-x-1111-dxfydhe4ndu210c4.jpg);
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
     width: 100%;
@@ -17,26 +17,26 @@ body {
 }
 
 .Deer {
-    background-image: url('assests/derr mage wthout background.png');
+    background-image: url(assests/baby\ deer.png);
     background-repeat: no-repeat;
     background-size: cover;
     width: 180px;
-    height: 244px;
+    height: 160px;
     position: absolute;
     bottom: 0;
     left: 52px;
-    animation: Deer 0.6s linear;
+    animation: DeerJump 1s linear; /* Added jump animation */
 }
 
 .Cheetah {
-    width: 180px;
-    height: 120px;
-    background-image: url('assests/depositphotos_494581100-stock-illustration-animal-character-funny-cheetah-cartoon-fotor-bg-remover-2023110592021.png');
+    width: 166px;
+    height: 113px;
+    background-image: url(assests/depositphotos_494581100-stock-illustration-animal-character-funny-cheetah-cartoon-fotor-bg-remover-2023110592021.png);
     background-size: cover;
     position: absolute;
     bottom: 0;
-    left: 100%; /* Start the obstacle outside the window */
-    animation: cheetahAni 5s linear infinite;
+    left: 44vw;
+    animation: CheetahAni 5s linear infinite; /* Added animation for cheetah */
 }
 
 .gameOver {
@@ -49,18 +49,18 @@ body {
 
 #scoreCont {
     font-size: 25px;
-    color: white;
+    color: #54212f;
     font-weight: bold;
     position: absolute;
     right: 45px;
     top: 31px;
-    border: 2px solid white;
+    border: 2px solid black;
     padding: 10px;
     font-family: 'Ubuntu', sans-serif;
     border-radius: 10px;
 }
 
-@keyframes Deer {
+@keyframes DeerJump {
     0% {
         bottom: 0;
     }
@@ -72,45 +72,11 @@ body {
     }
 }
 
-@keyframes cheetahAni {
+@keyframes CheetahAni {
     0% {
-        left: 100%;
+        left: 100vw;
     }
     100% {
         left: -10vw;
-    }
-}
-
-.animateDeer {
-    animation: Deer 0.9s infinite;
-}
-
-@media screen and (max-width: 600px) and (max-height: 100vh) {
-    .gameContainer {
-        background-image: none; /* Remove background image on smaller screens */
-    }
-
-    .Deer {
-        background-image: url('assests/derr mage wthout background.png');
-        background-repeat: no-repeat;
-        background-size: cover;
-        width: 100px;
-        height: 144px;
-        position: absolute;
-        bottom: 0;
-        left: 52px;
-    }
-
-    #scoreCont {
-        font-size: 10px;
-        color: #54212f;
-        font-weight: bold;
-        position: absolute;
-        right: 45px;
-        top: 31px;
-        border: 2px solid black;
-        padding: 10px;
-        font-family: 'Ubuntu', sans-serif;
-        border-radius: 10px;
     }
 }

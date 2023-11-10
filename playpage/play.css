@@ -14,36 +14,56 @@ body {
 }
 
 .LEADERBOARD {
-    margin-left: 300px;
-    margin-top: 50px;
-}
-
-.LEADERBOARD .details {
-    margin-top: -45%;
-    margin-left: 25%;
-}
-
-.details {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 110px;
-    width: 130px;
+    width: 300px; /* Adjust the width as needed */
+    background: linear-gradient(to bottom, #71db34, #317041);
+    color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
 input {
-    background-color: #2A6338;
-    border-style: none;
-    border-radius: 10px;
-    color: white;
-    height: 30px;
+    width: 100px;
+    padding: 15px;
+    margin: 15px 0;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.LEADERBOARD h3 {
-    margin-top: -15%;
-    margin-left: 11%;
+button {
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
+button:hover {
+    background-color: #c0392b;
+}
+
+@keyframes jump {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+button {
+    animation: jump 1s infinite;
+}
 
 .playbtn {
     display: flex;
@@ -52,14 +72,16 @@ input {
     width: 100px;
     position: relative;
     margin-left: 75%;
-    margin-top: 450px;
+    margin-top: 180px;
     color: white;
 }
 
 a {
     text-decoration: none;
 }
-
+.playbtn img{
+    width: 30px;
+}
 .instruction {
     /* border: 1px solid black; */
     margin-left: 15%;

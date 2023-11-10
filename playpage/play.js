@@ -3,6 +3,7 @@ let bgmMusic = new Audio("./assests/bgm1.mp3");
 bgmMusic.play();
 loop = true;
   // Get  to the input values and the "Save Data" button
+  
   const nameInput = document.getElementById("nameInput");
   const ageInput = document.getElementById("ageInput");
   const squadInput = document.getElementById("squadInput");
